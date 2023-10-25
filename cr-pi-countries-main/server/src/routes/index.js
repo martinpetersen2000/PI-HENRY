@@ -1,5 +1,12 @@
 const { Router } = require("express");
-
+const getCountriesApiHandler = require("../handlers/getCountriesApiHandler");
+const getCountriesHandler = require("../handlers/getCountriesHandler");
+const getCountryIdHandler = require("../handlers/getCountryIdHandler");
 const router = Router();
-
+router.post("/", getCountriesApiHandler);
+router.get("/countries", getCountriesHandler);
+router.get("/countries/:id", getCountryIdHandler);
+router.get("/countries/name");
+router.post("/activities");
+router.get("/activities");
 module.exports = router;
