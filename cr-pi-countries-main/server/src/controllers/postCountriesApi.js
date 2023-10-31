@@ -3,7 +3,7 @@ const URL = "http://localhost:5000/countries";
 const { Country } = require("../db");
 // const Country = require("../models/Country");
 
-async function getCountriesApi() {
+async function postCountriesApi() {
   const { data } = await axios.get(URL);
   const paises = data.map((pais) => ({
     id: pais.cca3,
@@ -19,4 +19,4 @@ async function getCountriesApi() {
   await Country.bulkCreate(paises);
 }
 
-module.exports = getCountriesApi;
+module.exports = postCountriesApi;
