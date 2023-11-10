@@ -7,6 +7,7 @@ import Home from "./views/Home/Home";
 import { Route, Routes } from "react-router-dom";
 import Detail from "./views/Detail/Detail";
 import Form from "./components/Form/Form";
+import Create from "./views/Create/Create";
 function App() {
   // const [count, setCount] = useState(0);
 
@@ -16,7 +17,7 @@ function App() {
         <Route path="/" element={<Landing />}></Route>
         <Route path="/home" element={<Home />}></Route>
         <Route path="home/detail/:id" element={<Detail />}></Route>
-        <Route path="/create" element={<Form />}></Route>
+        <Route path="/create" element={<Create />}></Route>
       </Routes>
     </div>
   );

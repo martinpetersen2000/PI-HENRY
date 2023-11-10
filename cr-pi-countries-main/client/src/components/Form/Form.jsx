@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function Form() {
+  const paises = useSelector((state) => state.allCountries);
   const [input, setInput] = useState({
     nombre: "",
     dificultad: "",
@@ -17,6 +19,7 @@ export default function Form() {
   }
   function handleSubmit(event) {
     event.preventDefault();
+
     // Aquí puedes realizar acciones como enviar los datos al servidor.
     fetch("http://localhost:3001/activities", {
       method: "POST",
@@ -41,7 +44,7 @@ export default function Form() {
     setInput((prevInput) => ({
       ...prevInput,
       [name]:
-        name === "paises"
+        name === "countries"
           ? value.split(",").map((country) => country.trim())
           : value,
     }));
@@ -51,7 +54,12 @@ export default function Form() {
       <form onSubmit={handleSubmit}>
         <div>
           <label>Nombre</label>
-          <input onChange={handleChange} value={input.value} name="nombre" />
+          <input
+            onChange={handleChange}
+            value={input.value}
+            name="nombre"
+            style={{ textTransform: "capitalize" }}
+          />
         </div>
         <div>
           <label>Dificultad</label>
@@ -67,7 +75,12 @@ export default function Form() {
         </div>
         <div>
           <label>Temporada</label>
-          <input onChange={handleChange} value={input.value} name="temporada" />
+          <input
+            onChange={handleChange}
+            value={input.value}
+            name="temporada"
+            style={{ textTransform: "capitalize" }}
+          />
         </div>
         <div>
           <label>Paises (separados por comas)</label>
@@ -75,6 +88,7 @@ export default function Form() {
             onChange={handleChangePais}
             value={input.value}
             name="countries"
+            style={{ textTransform: "capitalize" }}
           />
         </div>
         <button type="submit">Submit</button>

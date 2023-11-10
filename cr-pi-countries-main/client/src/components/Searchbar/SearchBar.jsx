@@ -6,6 +6,7 @@ import {
   orderPoblacion,
 } from "../../redux/actions";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function SearchBar({ handleSubmit, handleChange }) {
   const dispatch = useDispatch();
@@ -26,6 +27,9 @@ export default function SearchBar({ handleSubmit, handleChange }) {
   }
   return (
     <form action="">
+      <Link to="/create">
+        <button>create</button>
+      </Link>
       <select onChange={handleFilterContinent} name="" id="">
         <option value="Todos">Todos</option>
         <option value="Americas">Americas</option>

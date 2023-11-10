@@ -1,16 +1,15 @@
 import style from "./Landing.module.css";
-import fondopaises from "../../assets/fondopaises.jpg";
 import { Link } from "react-router-dom";
 
-const { boton, contenedor } = style;
+const { contenedor, boton } = style;
 
 export default function Landing() {
   return (
-    <div>
-      <div className={contenedor}>
+    <div className={contenedor}>
+      <div>
         {/* <img src={fondopaises} alt="" /> */}
         <Link to="/home">
-          <button className={boton}>Home</button>
+          <button>Home</button>
         </Link>
         <h1>hola</h1>
       </div>
