@@ -8,10 +8,11 @@ export default function Card({ country }) {
     <div>
       <Link to={`detail/${id}`}>
         {/* <img src={imagen} alt="" /> */}
-        <h1>Pais: {nombre}</h1>
+        <h1>Paiss: {nombre}</h1>
         <h2>Continente: {continente}</h2>
+        
         <img src={bandera} alt="" />
-      </Link>
+      </Link>  
     </div>
   );
 }
