@@ -1,17 +1,18 @@
-import "./Card.module.css";
-
+import style from "./Card.module.css";
 import { Link } from "react-router-dom";
 
+const { contenedor, imagen, text, overlay } = style;
 export default function Card({ country }) {
   const { nombre, continente, bandera, id } = country;
   return (
-    <div>
+    <div className={contenedor}>
       <Link to={`detail/${id}`}>
-        {/* <img src={imagen} alt="" /> */}
-        <h1>Pais: {nombre}</h1>
-        <h2>Continente: {continente}</h2>
-        <img src={bandera} alt="" />
+        <div className={overlay}>
+          <h1 className={text}>{nombre}</h1>
+          <h2 className={text}>{continente}</h2>
+        </div>
       </Link>
+      <img className={imagen} src={bandera} alt="klok" />
     </div>
   );
 }

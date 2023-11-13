@@ -1,15 +1,15 @@
+/* body {
+  margin: 0;
+} */
 .contenedor {
   /* background: url("./fondopaises.jpg") no-repeat center; */
   /* background-size: cover; */
   background-color: rgb(117, 50, 179);
   height: 100%;
-  width: 100%;
   min-height: 100vh;
+  margin-top: -19px;
 }
 
-body {
-  margin: 0;
-}
 .boton {
   color: rgb(198, 0, 0);
 }

@@ -1,0 +1,40 @@
+/* SearchBar.module.css */
+.navbar {
+  justify-content: space-around;
+  background-color: rgba(236, 244, 10, 0.7);
+  padding: 10px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  margin-bottom: 20px;
+}
+
+.navItem {
+  text-decoration: none;
+}
+.actividades {
+}
+.navButton,
+.navSelect,
+.navLabel,
+.actividades {
+  border: none;
+  background-color: rgba(236, 244, 10, 0.7);
+  border-radius: 5px;
+  margin: 5px;
+  padding: 8px;
+  cursor: pointer;
+}
+.navInput {
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 8px;
+}
+.navButtonPais {
+  font-size: medium;
+  border: none;
+  background-color: rgba(236, 244, 10, 0.7);
+  border-radius: 5px;
+  margin: 5px;
+  padding: 8px;
+  cursor: pointer;
+}

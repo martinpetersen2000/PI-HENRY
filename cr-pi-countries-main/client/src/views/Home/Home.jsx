@@ -3,7 +3,7 @@ import Cards from "../../components/Cards/Cards";
 import SearchBar from "../../components/Searchbar/SearchBar";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import "./Home.css";
+import style from "./Home.module.css";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -40,7 +40,7 @@ export default function Home() {
     setCurrentPage(newPage);
   };
   return (
-    <div className="contenedor">
+    <div className={style.contenedor}>
       <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} />
       <Cards allCountries={currentCountries} />
       <div>
