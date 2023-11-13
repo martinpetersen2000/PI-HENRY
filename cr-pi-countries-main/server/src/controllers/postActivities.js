@@ -7,12 +7,20 @@ async function postActivities({
   temporada,
   countries,
 }) {
+  const actividadExistente = await Activity.findOne({
+    where: { nombre, countries },
+  });
+
+  if (actividadExistente) {
+    throw new Error("La actividad ya existe");
+  }
   const newActivity = await Activity.create({
     nombre,
     dificultad,
     duracion,
     temporada,
   });
+
   let paisesEncontrados = await Country.findAll({
     where: { nombre: countries },
   });

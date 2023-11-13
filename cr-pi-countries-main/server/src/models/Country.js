@@ -13,10 +13,19 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       bandera: {
-        type: DataTypes.BLOB,
+        type: DataTypes.STRING,
         allowNull: false,
+        validate: {
+          isUrl: true,
+          notEmpty: true,
+          notNull: true,
+        },
       },
       continente: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      capital: {
         type: DataTypes.STRING,
         allowNull: false,
       },

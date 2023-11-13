@@ -5,11 +5,13 @@ const { Country } = require("../db");
 
 async function postCountriesApi() {
   const { data } = await axios.get(URL);
+
   const paises = data.map((pais) => ({
     id: pais.cca3,
     nombre: pais.translations.spa.common,
     bandera: pais.flags?.png,
-    continente: pais.continents,
+    continente: pais.region,
+    capital: pais.capital != null ? pais.capital : "No data",
     subregion: pais.subregion,
     area: pais.area,
     poblacion: pais.population,
