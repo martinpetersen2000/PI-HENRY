@@ -12,7 +12,7 @@ export default function Card({ country }) {
           <h2 className={text}>{continente}</h2>
         </div>
       </Link>
-      <img className={imagen} src={bandera} alt="klok" />
+      <img className={imagen} src={bandera} alt="" />
     </div>
   );
 }

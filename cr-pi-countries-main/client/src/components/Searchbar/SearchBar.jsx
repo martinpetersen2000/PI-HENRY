@@ -39,7 +39,7 @@ export default function SearchBar({ handleSubmit, handleChange }) {
             Continentes
           </option>
           <option value="Todos">Todos</option>
-          <option value="Americas">Americas</option>
+          <option value="Americas">Americass</option>
           <option value="Oceania">Oceania</option>
           <option value="Europe">Europe</option>
           <option value="Africa">Africa</option>
