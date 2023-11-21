@@ -11,7 +11,11 @@ async function postCountriesApi() {
     nombre: pais.translations.spa.common,
     bandera: pais.flags?.png,
     continente: pais.region,
-    capital: pais.capital != null ? pais.capital : "No data",
+    capital: Array.isArray(pais.capital)
+      ? pais.capital
+          .map((c) => c.normalize("NFD").replace(/[\u0300-\u036f]/g, ""))
+          .join(",")
+      : "",
     subregion: pais.subregion,
     area: pais.area,
     poblacion: pais.population,
