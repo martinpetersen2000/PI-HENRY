@@ -1,40 +1,107 @@
 /* SearchBar.module.css */
 .navbar {
+  position: relative;
+  /* background: url("./navbarr.png") no-repeat center; */
+  background-size: cover;
   justify-content: space-around;
-  background-color: rgba(236, 244, 10, 0.7);
+  background-color: rgb(182, 68, 68);
   padding: 10px;
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
   margin-bottom: 20px;
+  font-family: "Open Sans", sans-serif;
 }
 
 .navItem {
   text-decoration: none;
 }
-.actividades {
-}
+
 .navButton,
 .navSelect,
 .navLabel,
 .actividades {
   border: none;
-  background-color: rgba(236, 244, 10, 0.7);
+  /* background-color: rgba(244, 108, 10, 0.7); */
   border-radius: 5px;
   margin: 5px;
-  padding: 8px;
+  padding: 10px;
   cursor: pointer;
+  background: none;
+  color: aliceblue;
+  font-size: medium;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
 }
 .navInput {
   border: none;
-  border-radius: 5px;
-  margin: 5px;
-  padding: 8px;
+  border-radius: 10px;
+  /* margin: 30px; */
+  padding: 10px;
+  width: 30%;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); /* Agrega sombra aquí */
 }
 .navButtonPais {
-  font-size: medium;
   border: none;
-  background-color: rgba(236, 244, 10, 0.7);
-  border-radius: 5px;
+  /* background-color: rgba(244, 108, 10, 0.7); */
+  /* border-radius: 5px; */
   margin: 5px;
-  padding: 8px;
+  padding: 9px;
   cursor: pointer;
+  background: none;
+  font-size: large;
+}
+
+.option {
+  background-color: black;
+}
+.navButtonActividad {
+  border: none;
+  /* background-color: rgba(244, 108, 10, 0.7); */
+  border-radius: 5px;
+  cursor: pointer;
+  background: none;
+  color: aliceblue;
+  font-size: medium;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  color: black;
+  /* background-color: rgb(255, 255, 255); */
+  padding: 10px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.navButtonActividad:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.flechaAtras {
+  position: absolute;
+  left: 5px;
+  margin-top: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px; /* Ancho igual a la altura */
+  height: 40px; /* Altura igual al ancho */
+  transition: background-color 0.3s ease;
+  z-index: 2;
+}
+
+.flechaAtras:hover {
+  background-color: rgba(169, 169, 169, 0.5);
+  border-radius: 50%;
+  width: 40px; /* Ancho igual a la altura */
+  height: 40px; /* Altura igual al ancho */
+}
+
+.lupa {
+  position: relative;
+  top: 7px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  right: 35px;
 }

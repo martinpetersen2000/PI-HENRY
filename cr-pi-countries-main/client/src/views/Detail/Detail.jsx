@@ -1,6 +1,10 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import style from "./Detail.module.css";
+import SearchBar from "../../components/Searchbar/SearchBar";
+import flechaAtras from "../../components/Searchbar/flechaatras.svg";
+import { Link } from "react-router-dom";
 
 export default function Detail() {
   const { id } = useParams();
@@ -19,21 +23,43 @@ export default function Detail() {
 
   return (
     <div>
-      <h1>{country.nombre}</h1>
-      <img src={country.bandera} alt="" />
-      <h2>{`NOMBRE | ${country?.nombre}`}</h2>
-      {/* <h2>{`CAPITAL | ${country?.capital}`}</h2> */}
-      <h2>{`CONTINENTE | ${country?.continente}`}</h2>
-      <h2>{`SUBREGION | ${country?.subregion}`}</h2>
-      <h2>{`AREA | ${country?.area}`}</h2>
-      <h2>{`POBLACION | ${country?.poblacion}`}</h2>
-      <div>
-        {Array.isArray(country.activities) && country.activities.length > 0 ? (
-          country.activities.map((act) => (
-            <h2 key={act.nombre}>ACTIVIDADES | {act.nombre}</h2>
-          ))
-        ) : (
-          <h2>no hay acts</h2>
+      <Link to="/home">
+        <button className={style.flechaAtras}>
+          <img src={flechaAtras} alt="" />
+        </button>
+      </Link>
+      <h2 className={style.descripcion}>Detalle de {country.nombre}</h2>
+      <div className={style.contenedor}>
+        <div className={style.pais}>
+          <div>
+            <img className={style.imagen} src={country.bandera} alt="" />
+          </div>
+          <div className={style.info}>
+            <h2>Nombre: {country?.nombre}</h2>
+            <h2>ID: {country?.id}</h2>
+            <h2>Capital: {country?.capital}</h2>
+            <h2>Continente: {country?.continente}</h2>
+            <h2>
+              {country.subregion != null && `Subregión: ${country?.subregion}`}
+            </h2>
+            <h2>Área: {country?.area}</h2>
+            <h2>Población: {country?.poblacion}</h2>
+          </div>
+        </div>
+        {Array.isArray(country.activities) && country.activities.length > 0 && (
+          <div className={style.actividad}>
+            <div className={style.actividades}>
+              {country.activities.map((act) => (
+                <div key={act.nombre}>
+                  <h2>Actividad: {act.nombre}</h2>
+                  <h2>Nivel de dificultad: {act.dificultad}</h2>
+                  <h2>Duración: {act.duracion} hs</h2>
+                  <h2>Temporada: {act.temporada}</h2>
+                  <br />
+                </div>
+              ))}
+            </div>
+          </div>
         )}
       </div>
     </div>

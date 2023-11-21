@@ -6,11 +6,8 @@ import Landing from "./views/Landing/Landing";
 import Home from "./views/Home/Home";
 import { Route, Routes } from "react-router-dom";
 import Detail from "./views/Detail/Detail";
-import Form from "./components/Form/Form";
 import Create from "./views/Create/Create";
 function App() {
-  // const [count, setCount] = useState(0);
-
   return (
     <div>
       <Routes>

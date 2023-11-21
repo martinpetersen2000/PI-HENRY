@@ -1,6 +1,7 @@
 import {
   FILTER_BY_ACTIVITY,
   FILTER_BY_CONTINENT,
+  GET_ACTIVITIES,
   GET_COUNTRIES,
   GET_COUNTRIES_BY_NAME,
   ORDER_ALFABETICO,
@@ -10,6 +11,7 @@ import {
 let initialState = {
   allCountries: [],
   copyCountries: [],
+  allActivities: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -19,6 +21,12 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         allCountries: action.payload,
         copyCountries: action.payload,
+      };
+
+    case GET_ACTIVITIES:
+      return {
+        ...state,
+        allActivities: action.payload,
       };
 
     case GET_COUNTRIES_BY_NAME:

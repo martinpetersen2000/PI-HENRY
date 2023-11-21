@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   filterByActivity,
   filterByContinent,
@@ -8,10 +8,12 @@ import {
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./SearchBar.module.css";
+import lupa from "./lupa.svg";
+import flechaAtras from "./flechaatras.svg";
 
 export default function SearchBar({ handleSubmit, handleChange }) {
   const dispatch = useDispatch();
-
+  const actividades = useSelector((state) => state.allActivities);
   function handleFilterContinent(event) {
     dispatch(filterByContinent(event.target.value));
   }
@@ -28,43 +30,76 @@ export default function SearchBar({ handleSubmit, handleChange }) {
   }
   return (
     <div className={style.navbar}>
+      <div>
+        <Link to="/">
+          <button className={style.flechaAtras}>
+            <img src={flechaAtras} alt="" />
+          </button>
+        </Link>
+        <input
+          className={style.navInput}
+          type="text"
+          placeholder="Buscar país..."
+          onChange={handleChange}
+        />
+
+        <button className={style.lupa} type="submit" onClick={handleSubmit}>
+          <img src={lupa} alt="" />
+        </button>
+        <Link to="/create">
+          <button className={style.navButtonActividad}>NUEVA ACTIVIDAD</button>
+        </Link>
+      </div>
       <form action="">
-        <select
-          className={style.navSelect}
-          onChange={handleFilterContinent}
-          name=""
-          id=""
-        >
-          <option disabled selected value="">
-            Continentes
-          </option>
-          <option value="Todos">Todos</option>
-          <option value="Americas">Americass</option>
-          <option value="Oceania">Oceania</option>
-          <option value="Europe">Europe</option>
-          <option value="Africa">Africa</option>
-          <option value="Asia">Asia</option>
-        </select>
         <select
           className={style.navSelect}
           onChange={handleFilterActivity}
           name=""
           id=""
         >
-          <option disabled selected value="">
+          <option className={style.option} disabled selected value="">
             Actividades
           </option>
-          <option value="">Todas</option>
-          <option value="Caminata">Caminata</option>
-          <option value="Montaña">Montaña</option>
-          <option value="Pesca">Pesca</option>
+          {actividades?.map((act) => {
+            return (
+              <option className={style.option} value={act.nombre} key={act.id}>
+                {act.nombre}
+              </option>
+            );
+          })}
         </select>
-        <Link to="/create">
-          <button className={style.navButton}>Crear actividad</button>
-        </Link>
-        <label className={style.navLabel} htmlFor="">
+        <select
+          className={style.navSelect}
+          onChange={handleFilterContinent}
+          name=""
+          id=""
+        >
+          <option className={style.option} disabled selected value="">
+            Continente
+          </option>
+          <option className={style.option} value="Todos">
+            Todos
+          </option>
+          <option className={style.option} value="Americas">
+            Americas
+          </option>
+          <option className={style.option} value="Oceania">
+            Oceania
+          </option>
+          <option className={style.option} value="Europe">
+            Europe
+          </option>
+          <option className={style.option} value="Africa">
+            Africa
+          </option>
+          <option className={style.option} value="Asia">
+            Asia
+          </option>
+        </select>
+
+        {/* <label className={style.navLabel} htmlFor="">
           Ordenar por:
-        </label>
+        </label> */}
         <select
           className={style.navSelect}
           onChange={handleOrderAlfabetico}
@@ -72,10 +107,14 @@ export default function SearchBar({ handleSubmit, handleChange }) {
           id=""
         >
           <option disabled selected value="">
-            Ordenar por letra
+            Ordenar segun su inicial
           </option>
-          <option value="A-Z">A-Z</option>
-          <option value="Z-A">Z-A</option>
+          <option className={style.option} value="A-Z">
+            A-Z
+          </option>
+          <option className={style.option} value="Z-A">
+            Z-A
+          </option>
         </select>
         {/* <label className={style.navLabel} htmlFor=""></label> */}
         <select
@@ -84,22 +123,16 @@ export default function SearchBar({ handleSubmit, handleChange }) {
           name=""
           id=""
         >
-          <option value="+">de mayor a menor</option>
-          <option value="-">de menor a mayor</option>
+          <option disabled selected value="">
+            Ordenar segun su poblacion
+          </option>
+          <option className={style.option} value="+">
+            De mayor a menor poblacion
+          </option>
+          <option className={style.option} value="-">
+            De menor a mayor poblacion
+          </option>
         </select>
-        <input
-          className={style.navInput}
-          type="text"
-          placeholder="Busqueda..."
-          onChange={handleChange}
-        />
-        <button
-          className={style.navButtonPais}
-          type="submit"
-          onClick={handleSubmit}
-        >
-          🔍
-        </button>
       </form>
     </div>
   );

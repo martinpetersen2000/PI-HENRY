@@ -1,15 +1,59 @@
-/* body {
-  margin: 0;
-} */
 .contenedor {
-  /* background: url("./fondopaises.jpg") no-repeat center; */
-  /* background-size: cover; */
-  background-color: rgb(117, 50, 179);
-  height: 100%;
+  background: url("copiaaa.png") no-repeat center;
+  background-size: cover;
+  /* height: 100%; */
   min-height: 100vh;
-  margin-top: -19px;
+  text-align: center;
+}
+
+.texto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welCountries {
+  margin-top: 100px;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+.welcome {
+  color: rgb(154, 43, 43);
+  font-weight: 300;
+  font-size: 40px;
+}
+
+.countries {
+  margin-top: -20px;
+  color: rgb(154, 43, 43);
+  font-weight: 800;
+  font-size: 70px;
+}
+
+.parrafo {
+  font-family: "Open Sans", sans-serif;
+  color: rgb(154, 43, 43);
+  width: 600px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .boton {
-  color: rgb(198, 0, 0);
+  cursor: pointer;
+  color: white;
+  margin-top: 30px;
+  font-size: 25px;
+  border: none;
+  border-radius: 20px;
+  padding: 15px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  background-color: rgb(182, 68, 68);
+  transition: transform 0.2s ease-in-out; /* Agrega transición para suavizar el efecto */
+}
+
+.boton:hover {
+  transform: scale(1.1); /* Cambia el tamaño al 110% en hover */
 }

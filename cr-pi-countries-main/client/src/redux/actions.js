@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const GET_COUNTRIES = "GET_COUNTRIES";
+export const GET_ACTIVITIES = "GET_ACTIVITIES";
 export const GET_COUNTRIES_BY_NAME = "GET_COUNTRIES_BY_NAME";
 export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
@@ -17,18 +18,32 @@ export function getCountries() {
     });
   };
 }
-export function getCountriesByName(nombre) {
+
+export function getActivities() {
   return async function (dispatch) {
-    const response = await axios(
-      `http://localhost:3001/countries?nombre=${nombre}`
-    );
+    const response = await axios("http://localhost:3001/activities");
     return dispatch({
-      type: GET_COUNTRIES_BY_NAME,
+      type: GET_ACTIVITIES,
       payload: response.data,
     });
   };
 }
 
+export function getCountriesByName(nombre) {
+  return async function (dispatch) {
+    try {
+      const response = await axios(
+        `http://localhost:3001/countries?nombre=${nombre}`
+      );
+      return dispatch({
+        type: GET_COUNTRIES_BY_NAME,
+        payload: response.data,
+      });
+    } catch (error) {
+      return window.alert(error.message);
+    }
+  };
+}
 export function filterByContinent(continente) {
   return {
     type: FILTER_BY_CONTINENT,

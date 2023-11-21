@@ -1,9 +1,15 @@
-import { getCountries, getCountriesByName } from "../../redux/actions";
+import {
+  getActivities,
+  getCountries,
+  getCountriesByName,
+} from "../../redux/actions";
 import Cards from "../../components/Cards/Cards";
 import SearchBar from "../../components/Searchbar/SearchBar";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import style from "./Home.module.css";
+import siguiente from "./siguiente.svg";
+import anterior from "./anterior.svg";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -27,6 +33,7 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getCountries());
+    dispatch(getActivities());
     //para hacer despues averiguar sobre el on mount, lo explica en la parte 2 de front end en el minuto 14
   }, [dispatch]);
 
@@ -43,19 +50,21 @@ export default function Home() {
     <div className={style.contenedor}>
       <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} />
       <Cards allCountries={currentCountries} />
-      <div>
+      <div className={style.paginado}>
         <button
+          className={style.boton}
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
         >
-          Anterior
+          <img src={anterior} alt="" />
         </button>
-        <span>Página {currentPage}</span>
+        <h2>Página {currentPage}</h2>
         <button
+          className={style.boton}
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={indexOfLastCountry >= allCountries.length}
         >
-          Siguiente
+          <img src={siguiente} alt="" />
         </button>
       </div>
     </div>
